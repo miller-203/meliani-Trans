@@ -32,6 +32,7 @@ import { ContactService } from '../../services/contact.service';
                   <span class="label">Téléphone</span>
                   <span class="value">+212 6 68 18 95 58</span>
                   <span class="value">+212 6 22 53 78 06</span>
+                  <span class="value">+33 7 53 26 73 68</span>
                 </div>
               </div>
               

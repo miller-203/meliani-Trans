@@ -54,6 +54,7 @@ import { CommonModule } from '@angular/common';
             <ul>
               <li><i class="fas fa-phone"></i> +212 6 68 18 95 58</li>
               <li><i class="fas fa-phone"></i> +212 6 22 53 78 06</li>
+              <li><i class="fas fa-phone"></i> +33 7 53 26 73 68</li>
               <li><i class="fas fa-envelope"></i> transmeliani&#64;gmail.com</li>
               <li><i class="fas fa-map-marker-alt"></i> Route tairet lot laanaya N/21-Oujda</li>
               <li><i class="fas fa-clock"></i> Lun - Sam: 9h - 18h</li>

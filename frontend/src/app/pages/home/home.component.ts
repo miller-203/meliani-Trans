@@ -49,6 +49,7 @@ import { CommonModule } from '@angular/common';
             </div>
           </div>
           <div class="floating-icons">
+            <img class="floating-vehicle" src="assets/images/car.webp" alt="Camion Transport Meliani" style="width: 100%; height: 100%;">
             <div class="float-icon icon-1"><i class="fas fa-box"></i></div>
             <div class="float-icon icon-2"><i class="fas fa-globe"></i></div>
             <div class="float-icon icon-3"><i class="fas fa-shield-alt"></i></div>
@@ -348,6 +349,19 @@ import { CommonModule } from '@angular/common';
     .floating-icons {
       position: absolute;
       inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .floating-vehicle {
+      width: min(88%, 430px);
+      aspect-ratio: 1;
+      object-fit: contain;
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--shadow-xl);
+      animation: float 4s ease-in-out infinite;
     }
 
     .float-icon {

@@ -23,6 +23,7 @@
 /home/miller/meliani-Trans/backend/src/main/java/com/melianitrans/entity/ShipmentStatusHistory.java
 /home/miller/meliani-Trans/backend/src/main/java/com/melianitrans/entity/User.java
 /home/miller/meliani-Trans/backend/src/main/java/com/melianitrans/dto/ShipmentResponseDto.java
+/home/miller/meliani-Trans/backend/src/main/java/com/melianitrans/controller/HealthController.java
 /home/miller/meliani-Trans/backend/src/main/java/com/melianitrans/security/AuthTokenFilter.java
 /home/miller/meliani-Trans/backend/src/main/java/com/melianitrans/service/ShipmentService.java
 /home/miller/meliani-Trans/backend/src/main/java/com/melianitrans/dto/ShipmentRequestDto.java

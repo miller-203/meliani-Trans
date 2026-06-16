@@ -1,5 +1,6 @@
 com/melianitrans/dto/TrackingResponse$TrackingResponseBuilder.class
 com/melianitrans/dto/MessageResponse$MessageResponseBuilder.class
+com/melianitrans/controller/HealthController.class
 com/melianitrans/security/UserDetailsServiceImpl.class
 com/melianitrans/service/AuthService.class
 com/melianitrans/dto/LoginRequest.class

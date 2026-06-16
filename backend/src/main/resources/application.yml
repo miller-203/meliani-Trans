@@ -9,8 +9,8 @@ spring:
       - optional:file:backend/.env.local[.properties]
   datasource:
     url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/meliani_trans}
-    username: ${DATABASE_USERNAME:meliani}
-    password: ${DATABASE_PASSWORD:meliani}
+    username: ${DATABASE_USERNAME:${DB_USERNAME:meliani}}
+    password: ${DATABASE_PASSWORD:${DB_PASSWORD:meliani}}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

@@ -116,13 +116,13 @@ Configurer les variables d'environnement :
 ```bash
 # Linux/Mac
 export DATABASE_URL="jdbc:postgresql://ep-wispy-haze-a2rr314o-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require&channelBinding=require"
-export DB_USERNAME="neondb_owner"
-export DB_PASSWORD="votre_mot_de_passe_neon"
+export DATABASE_USERNAME="neondb_owner"
+export DATABASE_PASSWORD="votre_mot_de_passe_neon"
 
 # Windows
 set "DATABASE_URL=jdbc:postgresql://ep-wispy-haze-a2rr314o-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require&channelBinding=require"
-set "DB_USERNAME=neondb_owner"
-set "DB_PASSWORD=votre_mot_de_passe_neon"
+set "DATABASE_USERNAME=neondb_owner"
+set "DATABASE_PASSWORD=votre_mot_de_passe_neon"
 ```
 
 ### 2. Lancer le Backend
@@ -161,8 +161,8 @@ Pour utiliser un autre PostgreSQL Cloud (Neon, Supabase, Railway, etc.), mettez 
 
 ```bash
 export DATABASE_URL=jdbc:postgresql://votre-host-cloud.com:5432/votre_database?sslmode=require
-export DB_USERNAME=votre_username
-export DB_PASSWORD=votre_password
+export DATABASE_USERNAME=votre_username
+export DATABASE_PASSWORD=votre_password
 ```
 
 ---
@@ -211,11 +211,11 @@ export DB_PASSWORD=votre_password
 | Variable | Description | Defaut |
 |----------|-------------|--------|
 | `DATABASE_URL` | URL JDBC PostgreSQL | Neon `neondb` |
-| `DB_USERNAME` | Nom d'utilisateur DB | `neondb_owner` |
-| `DB_PASSWORD` | Mot de passe DB | requis |
-| `JWT_SECRET` | Cle secrete JWT | `melianiTransSecretKey2024...` |
-| `JWT_EXPIRATION` | Duree de validite JWT (ms) | `86400000` |
-| `CORS_ORIGINS` | Origines CORS autorisees | `http://localhost:4200` |
+| `DATABASE_USERNAME` | Nom d'utilisateur DB | `neondb_owner` |
+| `DATABASE_PASSWORD` | Mot de passe DB | requis |
+| `JWT_SECRET` | Cle secrete JWT | requis |
+| `JWT_EXPIRATION_MS` | Duree de validite JWT (ms) | `86400000` |
+| `ALLOWED_ORIGINS` | Origines CORS autorisees | `http://localhost:4200` |
 
 ---
 

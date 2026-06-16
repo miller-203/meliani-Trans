@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: meliani-trans
+  config:
+    import:
+      - optional:file:.env[.properties]
+      - optional:file:backend/.env[.properties]
+      - optional:file:.env.local[.properties]
+      - optional:file:backend/.env.local[.properties]
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/meliani_trans}
+    username: ${DATABASE_USERNAME:meliani}
+    password: ${DATABASE_PASSWORD:meliani}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: ${SHOW_SQL:false}
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: ${FORMAT_SQL:false}
+  servlet:
+    multipart:
+      max-file-size: ${MAX_FILE_SIZE:100MB}
+      max-request-size: ${MAX_REQUEST_SIZE:100MB}
+  sql:
+    init:
+      mode: never
+
+app:
+  cors:
+    allowed-origins: ${ALLOWED_ORIGINS:http://localhost:4200}
+  jwt:
+    secret: ${JWT_SECRET:}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+  admin:
+    default:
+      email: ${ADMIN_EMAIL:admin@meliani-trans.com}
+      password: ${ADMIN_PASSWORD:admin}
+  upload:
+    pictures-dir: ${PICTURES_DIR:pictures}
+  cloudinary:
+    enabled: ${CLOUDINARY_ENABLED:false}
+    url: ${CLOUDINARY_URL:}
+    cloud-name: ${CLOUDINARY_CLOUD_NAME:}
+    api-key: ${CLOUDINARY_API_KEY:}
+    api-secret: ${CLOUDINARY_API_SECRET:}
+
+server:
+  port: ${PORT:8080}
+
+logging:
+  level:
+    org.springframework.security: ${SECURITY_LOG_LEVEL:INFO}
+    com.melianitrans: ${APP_LOG_LEVEL:INFO}

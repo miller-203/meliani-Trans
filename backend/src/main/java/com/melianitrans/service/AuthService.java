@@ -32,10 +32,10 @@ public class AuthService {
     @Autowired
     private JwtUtils jwtUtils;
 
-    @Value("${admin.default.email}")
+    @Value("${app.admin.default.email}")
     private String adminEmail;
 
-    @Value("${admin.default.password}")
+    @Value("${app.admin.default.password}")
     private String adminPassword;
 
     @PostConstruct

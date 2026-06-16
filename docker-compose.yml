@@ -1,0 +1,49 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: meliani-trans-db
+    environment:
+      POSTGRES_DB: meliani_trans
+      POSTGRES_USER: meliani
+      POSTGRES_PASSWORD: meliani
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U meliani -d meliani_trans"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+    container_name: meliani-trans-backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: jdbc:postgresql://db:5432/meliani_trans
+      DATABASE_USERNAME: meliani
+      DATABASE_PASSWORD: meliani
+      JWT_SECRET: 8f9a7c6e5d4b3a2910f8e7d6c5b4a3928172635445566778899aabbccddeeff1122334455667788
+      JWT_EXPIRATION_MS: 86400000
+      ADMIN_EMAIL: Meliani@gmail.com
+      ADMIN_PASSWORD: Meliani@123
+      ALLOWED_ORIGINS: http://localhost:4200,http://localhost
+      PORT: 8080
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: meliani-trans-frontend
+    depends_on:
+      - backend
+    ports:
+      - "4200:80"
+
+volumes:
+  postgres-data:

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: '/api'
+  apiUrl: 'https://meliani-trans-production-ad9f.up.railway.app/api'
 };

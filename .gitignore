@@ -5,6 +5,7 @@ frontend/.angular/
 
 # Backend
 backend/node_modules/
+app.jar
 
 # Env
 .env

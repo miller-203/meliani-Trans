@@ -2,7 +2,7 @@
 nixPkgs = ["jdk17", "maven"]
 
 [phases.build]
-cmds = ["cd backend && mvn -DskipTests clean package"]
+cmds = ["cd backend && mvn -DskipTests clean package && cp target/meliani-trans-backend-1.0.0.jar ../app.jar"]
 
 [start]
-cmd = "java -jar backend/target/meliani-trans-backend-1.0.0.jar"
+cmd = "java -jar app.jar"

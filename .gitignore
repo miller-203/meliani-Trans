@@ -7,8 +7,6 @@ frontend/.angular/
 backend/node_modules/
 app.jar
 
-# Env
-.env
 
 # IDE
 .vscode/

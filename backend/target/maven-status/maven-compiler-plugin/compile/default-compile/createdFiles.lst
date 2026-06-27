@@ -1,6 +1,6 @@
+com/melianitrans/controller/HealthController.class
 com/melianitrans/dto/TrackingResponse$TrackingResponseBuilder.class
 com/melianitrans/dto/MessageResponse$MessageResponseBuilder.class
-com/melianitrans/controller/HealthController.class
 com/melianitrans/security/UserDetailsServiceImpl.class
 com/melianitrans/service/AuthService.class
 com/melianitrans/dto/LoginRequest.class
@@ -33,15 +33,15 @@ com/melianitrans/controller/ContactController.class
 com/melianitrans/service/ShipmentRequestService.class
 com/melianitrans/dto/LoginResponse$LoginResponseBuilder.class
 com/melianitrans/entity/ShipmentRequest.class
-com/melianitrans/dto/ShipmentStatusHistoryDto$ShipmentStatusHistoryDtoBuilder.class
 com/melianitrans/controller/ShipmentRequestController.class
+com/melianitrans/dto/ShipmentStatusHistoryDto$ShipmentStatusHistoryDtoBuilder.class
 com/melianitrans/service/ShipmentService.class
 com/melianitrans/entity/User.class
 com/melianitrans/entity/ContactRequest$ContactStatus.class
 com/melianitrans/dto/ContactRequestDto.class
-com/melianitrans/repository/ShipmentRequestRepository.class
 com/melianitrans/entity/Shipment$Status.class
+com/melianitrans/repository/ShipmentRequestRepository.class
 com/melianitrans/entity/ContactRequest.class
-com/melianitrans/repository/ShipmentRepository.class
 com/melianitrans/security/AuthTokenFilter.class
 com/melianitrans/security/AuthEntryPointJwt.class
+com/melianitrans/repository/ShipmentRepository.class

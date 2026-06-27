@@ -378,20 +378,20 @@ import { CommonModule } from '@angular/common';
     }
 
     .float-icon.icon-1 {
-      top: 20%;
-      left: 0;
+      top: 48%;
+      left: 10px;
       animation: float 4s ease-in-out infinite;
     }
 
     .float-icon.icon-2 {
-      top: 10%;
-      right: 10%;
+      top: 39%;
+      right: 8%;
       animation: float 3.5s ease-in-out infinite 0.5s;
     }
 
     .float-icon.icon-3 {
-      bottom: 25%;
-      right: 0;
+      bottom: 30%;
+      right: 25px;
       animation: float 4.5s ease-in-out infinite 1s;
     }
 

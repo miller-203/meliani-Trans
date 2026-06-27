@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ShipmentService } from '../../services/shipment.service';
 import { Shipment, ShipmentRequestDto, StatusUpdateRequest, SHIPMENT_STATUS_LABELS } from '../../models/shipment.model';
@@ -45,6 +47,12 @@ type ViewMode = 'list' | 'create' | 'edit' | 'status';
           <button *ngIf="viewMode === 'list'" class="btn btn-primary" (click)="setView('create')">
             <i class="fas fa-plus"></i> Nouvelle expédition
           </button>
+          <button
+  class="btn btn-danger"
+  (click)="downloadPdf()">
+  <i class="fas fa-file-pdf"></i>
+  Télécharger PDF
+</button>
           <button *ngIf="viewMode !== 'list'" class="btn btn-outline" (click)="setView('list')">
             <i class="fas fa-arrow-left"></i> Retour
           </button>
@@ -489,6 +497,108 @@ export class AdminShipmentsComponent implements OnInit {
       error: (err) => console.error(err)
     });
   }
+  
+  downloadPdf() {
+  const doc = new jsPDF({
+    orientation: 'landscape',
+    unit: 'mm',
+    format: 'a4'
+  });
+
+  // ===== Title =====
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(18);
+  doc.text('Liste des Expéditions', 148, 15, { align: 'center' });
+
+  // ===== Company =====
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(15);
+  doc.text('Transport Meliani', 148, 22, { align: 'center' });
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(11);
+  doc.text(
+    'Route Tairet Lot Laanaya N°21 - Oujda | +212 6 68 18 95 58',
+    148,
+    28,
+    { align: 'center' }
+  );
+
+  // ===== Date =====
+  doc.setFontSize(10);
+  doc.text(
+    `Date : ${new Date().toLocaleDateString('fr-FR')}`,
+    14,
+    36
+  );
+
+  // ===== Table Data =====
+  const rows = this.filteredShipments.map(s => [
+    s.trackingNumber,
+    `${s.senderFirstName} ${s.senderLastName}`,
+    s.recipientFullName,
+    s.phone || '',
+    s.packageType,
+    `${s.weight} Kg`,
+    s.shippingCity,
+    s.deliveryCity
+  ]);
+
+  autoTable(doc, {
+    startY: 42,
+
+    head: [[
+      'N° Suivi',
+      'Expéditeur',
+      'Destinataire',
+      'Téléphone',
+      'Type',
+      'Poids',
+      'Expédition',
+      'Livraison'
+    ]],
+
+    body: rows,
+
+    theme: 'grid',
+
+    headStyles: {
+      fillColor: [33, 150, 243],
+      textColor: 255,
+      fontStyle: 'bold',
+      halign: 'center'
+    },
+
+    bodyStyles: {
+      halign: 'center',
+      valign: 'middle'
+    },
+
+    styles: {
+      fontSize: 9,
+      cellPadding: 3
+    },
+
+    alternateRowStyles: {
+      fillColor: [245, 245, 245]
+    },
+
+    didDrawPage: function (data) {
+      const pageSize = doc.internal.pageSize;
+      const pageHeight = pageSize.height;
+      const pageWidth = pageSize.width;
+
+      doc.setFontSize(9);
+      doc.text(
+        `Page ${doc.getCurrentPageInfo().pageNumber}`,
+        pageWidth - 20,
+        pageHeight - 5
+      );
+    }
+  });
+
+  doc.save('Expeditions.pdf');
+}
 
   getStatusLabel(status: string): string {
     return SHIPMENT_STATUS_LABELS[status as keyof typeof SHIPMENT_STATUS_LABELS] || status;

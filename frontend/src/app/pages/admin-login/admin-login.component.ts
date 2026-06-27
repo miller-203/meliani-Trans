@@ -71,13 +71,12 @@ import { AuthService } from '../../services/auth.service';
           </form>
 
           <div class="login-help">
-            
+             <button type="button" class="nav-item"
+             (click)="goHome()">
+             <i class="fas fa-arrow-left"></i> Retour au site </button>
           </div>
         </div>
 
-        <a routerLink="/accueil" class="back-link">
-          <i class="fas fa-arrow-left"></i> Retour au site
-        </a>
       </div>
     </div>
   `,
@@ -299,6 +298,10 @@ export class AdminLoginComponent {
       }
     });
   }
+  
+  goHome() {
+  this.router.navigate(['/accueil']);
+}
 
   onSubmit() {
     if (this.loginForm.invalid) {
